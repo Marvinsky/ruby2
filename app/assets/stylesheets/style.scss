@@ -11,15 +11,14 @@ html,body {
 	font-size: 1.2em;
 	padding: 10px 7px;
 }
-a,a:visited {
-	color: inherit !important;
-	text-decoration: none;
-}
 #logo {
 	font-size: 1.2em;
 }
 no-margin {
 	margin: 0px;
+}
+.red {
+	color: #E74C3C !important;
 }
 .be-red{
 	background-color: #E74C3C;
@@ -44,4 +43,8 @@ no-margin {
 	display: block;
 	padding: 10px 0px;
 	font-size: 1.2em;
+}
+a,a:visited {
+	color: inherit !important;
+	text-decoration: none;
 }
