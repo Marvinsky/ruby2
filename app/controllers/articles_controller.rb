@@ -17,8 +17,12 @@ class ArticlesController < ApplicationController
 	#POST /articles
 	def create
 		@article = Article.new(title: params[:article][:title], body: params[:article][:body])
-		@article.save
-		redirect_to @article
+		#@article.valid?
+		if @article.save
+			redirect_to @article
+		else
+			render :new
+		end	
 	end
 
 	#PUT /articles/:id
