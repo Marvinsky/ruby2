@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
 	#Campos => articule.title() => 'title article'
 	#escribir metodos
 	belongs_to :user
+	has_many :comments
 	validates :title, presence: true, uniqueness: true
 	validates :body, presence: true, length: {minimum: 20}
 	#validates :username, format: {with: /regex/}

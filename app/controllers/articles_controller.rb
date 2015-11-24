@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
 		#where no interpolar una cadena: Es inseguro
 		#Article.where(" body LIKE ?", params[:body])
 		@article.update_visits_count
+		@comment = Comment.new
 
 	end
 
