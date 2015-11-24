@@ -11,6 +11,9 @@ class Article < ActiveRecord::Base
 	before_save :set_visits_count
 
 
+	has_attached_file :cover, styles: {medium: "1280x720", thumb: "800x600"}
+	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
+
 	def update_visits_count
 		self.save if self.visit_count.nil?
 		self.update(visit_count: self.visit_count + 1)
