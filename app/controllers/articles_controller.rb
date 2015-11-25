@@ -23,12 +23,14 @@ class ArticlesController < ApplicationController
 	#GET /articles/new
 	def new
 		@article = Article.new
+		@categories = Category.all
 	end
 
 	#POST /articles
 	def create
 		#@article = Article.new(title: params[:article][:title], body: params[:article][:body])
 		@article = current_user.articles.new(article_params)  #not safe
+		@article.categories = params[:categories]
 		#@article.valid?
 		if @article.save
 			redirect_to @article
@@ -70,7 +72,7 @@ class ArticlesController < ApplicationController
 	#end
 
 	def article_params
-		params.require(:article).permit(:title,:body,:cover)
+		params.require(:article).permit(:title,:body,:cover,:categories)
 	end
 
 
