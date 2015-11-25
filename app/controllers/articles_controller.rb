@@ -3,6 +3,9 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :index]  #devise inyecta en el controlador
 	# show and index porque quiero que lean mis articulos sin haber iniciado sesion
 	before_action :set_article, except: [:index, :new, :create]
+	before_action :authenticate_editor!, only: [:new, :create, :update]
+	before_action :authenticate_admin!, only: [:destroy]
+
 	# GET /articles
 	def index
 		#todos los registros
