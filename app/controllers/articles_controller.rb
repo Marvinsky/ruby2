@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
 		#Article.where(" body LIKE ?", params[:body])
 		@article.update_visits_count
 		@comment = Comment.new
-
 	end
 
 	#GET /articles/new

@@ -4,6 +4,8 @@ class Article < ActiveRecord::Base
 	#escribir metodos
 	belongs_to :user
 	has_many :comments
+	has_many :has_categories
+	has_many :categories, through: :has_categories
 
 	validates :title, presence: true, uniqueness: true
 	validates :body, presence: true, length: {minimum: 20}
