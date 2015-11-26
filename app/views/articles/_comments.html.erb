@@ -1,0 +1,8 @@
+<%= render "comments/form" %>
+<ul id="comments-box">
+		<% @article.comments.each do |comment|  %>
+			<li>
+				<%= comment.body %> - <%= comment.user.email %>
+			</li>
+		<% end %>
+</ul>

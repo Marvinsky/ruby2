@@ -1,44 +1,24 @@
+<article  class="bootom-space">
+	<%= article_cover @article.cover.url %>
 
-<h1><%= @article.title %></h1>
-<% unless @article.user.nil? %>
-	<p>
-		Escrito por: <%= @article.user.email %>
-	</p>
-<% end %>
+	<div class="row center-xs">
+		<div class="col-xs-12 light-border col-md-7">
+			<h1 class="be-big blue"><%= @article.title %></h1>
+			<p class="text-right be-small">
+				<%= link_to "Back", articles_path, class:"undeline" %> -
+				<span class="red"><%= @article.visit_count %> visita(s)</span> -
+				<% unless @article.user.nil? %>	
+					Escrito por: <%= @article.user.email %>
+				<% end %>
+			</p>
 
-<div class="field">
-	<% @article.categories.each do |category| %>
-		<%= link_to category.name, category, style:"color:#{category.color};" %>
-	<% end %>
-</div>
+			<div class="text-justify">
+				<%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
+			</div>
 
-<div class="field">
-	<%=  image_tag  @article.cover.url() %>
-</div>
-
-<p>
-	Visitas: <%= @article.visit_count %>
-</p>
-<div>
-	<p><%=  Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %></p>
-</div>
-
-<div class="field">
-
-</div>
-
-<div class="field">
-<h3>Comentarios</h3>
-	<%= render "comments/form" %>
-	<ul id="comments-box">
-		<% @article.comments.each do |comment|  %>
-			<li>
-				<%= comment.body %> - <%= comment.user.email %>
-			</li>
-		<% end %>
-	</ul>
-</div>
-
-<div>
-	<%= link_to "Editar", edit_article_path(@article) %>
-</div>
+			<div class="top-space">
+				<%= render "articles/comments" %>
+			</div>
+		</div>
+	</div>
+</article>
