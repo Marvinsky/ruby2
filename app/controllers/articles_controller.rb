@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 	# GET /articles
 	def index
 		#todos los registros
-		@articles =	Article.paginate({page: params[:page], per_page:5}).publicados.ultimos
+		@articles =	Article.paginate({page: params[:page], per_page:10}).publicados.ultimos
 	end
 
 	#get /articles/:id

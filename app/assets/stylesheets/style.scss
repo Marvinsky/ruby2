@@ -38,6 +38,22 @@ no-margin {
 .text-left {
 	text-align: left;
 }
+.text-center {
+	text-align: center;
+}
+.relative {
+	position:relative;
+}
+.absolute {
+	position:absolute;
+}
+.article-height {
+	height: 150px;
+}
+.background-cover {
+	background-position:center;
+	background-size:cover;
+}
 .form-control {
 	border: none;
 	border-bottom: 1px solid;
