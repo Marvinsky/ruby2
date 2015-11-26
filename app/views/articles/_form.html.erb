@@ -15,7 +15,8 @@
 	</div>
 
 	<div class="field">
-		<%= f.hidden_field :body, id:"body-text-area"%>
+		<%= f.hidden_field :body, id:"body-textarea"%>
+		<%= f.hidden_field :markup_body, id:"markup-body-textarea"%>
 		<div id="epiceditor" style:"height:350px;"></div>
 	</div>
 
@@ -37,11 +38,13 @@
 <script>
 	var editor = new EpicEditor({
 		file:{
+			textarea: "markup-body-text-area", 
 			name: "nuevo_articulo"
 		}
 	});
 	editor.load();
 	$("#articles_form").on("submit", function(){
-		$("#body-text-area").val(editor.exportFile("nuevo_articulo", "html"));
+		$("#body-textarea").val(editor.exportFile("nuevo_articulo", "html"));
+		$("#markup-body-textarea").val(editor.exportFile("nuevo_articulo"));
 	});
 </script>
