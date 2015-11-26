@@ -22,7 +22,7 @@ class Article < ActiveRecord::Base
 
 	#declaramos un scope -> funcion landa o anonima
 	scope :publicados, ->{where(state: "published")}
-	scope :ultimos, ->{order("created_at DESC").limit(10)}
+	scope :ultimos, ->{order("created_at DESC")}
 
 	def categories=(value)
 		@categories = value
