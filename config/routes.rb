@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   patch "/articles/:id" update
   put "/articles/:id" update
 =end
-  root 'welcome#index'
+  root 'articles#index'
 
   get "/dashboard", to: "welcome#dashboard"
 

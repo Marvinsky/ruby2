@@ -15,6 +15,7 @@ class Article < ActiveRecord::Base
 	#en el caso que tengas post creados antes de la implementacion del count haz:
 	before_save :set_visits_count
 	after_create :save_categories
+	after_create :send_email
 
 
 	has_attached_file :cover, styles: {medium: "1280x720", thumb: "800x600"}
@@ -48,6 +49,10 @@ class Article < ActiveRecord::Base
 	end
 
 	private
+
+	def send_email
+		ArticleMailer.new_article(self).deliver_later
+	end
 
 	def save_categories
 		unless @categories.nil?
