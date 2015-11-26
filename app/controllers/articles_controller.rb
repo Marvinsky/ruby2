@@ -4,12 +4,12 @@ class ArticlesController < ApplicationController
 	# show and index porque quiero que lean mis articulos sin haber iniciado sesion
 	before_action :set_article, except: [:index, :new, :create]
 	before_action :authenticate_editor!, only: [:new, :create, :update]
-	before_action :authenticate_admin!, only: [:destroy]
+	before_action :authenticate_admin!, only: [:destroy, :publish]
 
 	# GET /articles
 	def index
 		#todos los registros
-		@articles =	Article.all
+		@articles =	Article.publicados
 	end
 
 	#get /articles/:id
@@ -61,6 +61,11 @@ class ArticlesController < ApplicationController
 		else 
 			render :edit
 		end
+	end
+
+	def publish
+		@article.publish!
+		redirect_to @article
 	end
 
 	private

@@ -20,6 +20,9 @@ class Article < ActiveRecord::Base
 	has_attached_file :cover, styles: {medium: "1280x720", thumb: "800x600"}
 	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
+	#declaramos un scope -> funcion landa o anonima
+	scope :publicados, ->{where(state: "published")}
+	scope :ultimos, ->{order("created_at DESC").limit(10)}
 
 	def categories=(value)
 		@categories = value
@@ -35,11 +38,11 @@ class Article < ActiveRecord::Base
 		state :in_draft, initial: true
 		state :published
 
-		event :published do
+		event :publish do
 			transitions from: :in_draft, to: :published
 		end
 
-		event :unpublished do
+		event :unpublish do
 			transitions from: :published, to: :in_draft
 		end
 	end
