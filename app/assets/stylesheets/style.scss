@@ -15,13 +15,28 @@ html,body {
 	color: #E74C3C !important;
 }
 .blue {
-	color: blue !important;
+	color: #66CCFF !important;
+}
+.be-big {
+	font-size:2em;
+}
+.be-small {
+	font-size:12px;
+}
+.underline {
+	text-decoration:underline;
+}
+.text-justify {
+	text-align:justify;
 }
 .be-red{
 	background-color: #E74C3C;
 }
+.grey {
+	color: #616161; 
+}
 .white {
-	color:  #ECF0F1;
+	color: #ECF0F1;
 }
 #logo {
 	font-size: 1.2em;
@@ -39,7 +54,10 @@ no-margin {
 	display:none !important;
 }
 .text-left {
-	text-align: left;
+	text-align:left;
+}
+.text-right {
+	text-align:right;
 }
 .text-center {
 	text-align: center;
@@ -69,4 +87,7 @@ no-margin {
 a,a:visited {
 	color: inherit !important;
 	text-decoration: none;
+}
+.botton-space{
+	margin-bottom:2em;
 }

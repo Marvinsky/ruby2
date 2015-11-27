@@ -1,8 +1,18 @@
-<%= render "comments/form" %>
-<ul id="comments-box">
-		<% @article.comments.each do |comment|  %>
-			<li>
-				<%= comment.body %> - <%= comment.user.email %>
-			</li>
-		<% end %>
-</ul>
+<div class="grey">
+	<div class="row">
+		<div class="col-xs-6">
+			Participate in the comments
+		</div>
+		<div class="col-xs-6">
+			<%= @article.comments.count %> comentario(s).
+		</div>
+	</div>
+
+	<div class="row">
+		<%= render "comments/form" %>
+	<div>
+
+	<div class="top-space" id="container">
+		<%= render @article.comments %>
+	</div>
+</div>
